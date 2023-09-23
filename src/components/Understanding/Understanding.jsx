@@ -12,6 +12,8 @@ import {
 
 import { useState } from "react";
 import {useHistory} from "react-router-dom";
+import "./Understanding.css";
+
 
 export default function Understanding() {
     console.log("je razumijes?");

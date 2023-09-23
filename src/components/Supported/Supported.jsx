@@ -12,6 +12,7 @@ import {
 
 import { useState } from "react";
 import {useHistory} from "react-router-dom";
+import "./Supported.css";
 
 
 export default function Supported() {

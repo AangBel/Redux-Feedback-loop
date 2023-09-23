@@ -12,6 +12,7 @@ import {
 
 import { useState, useSelector } from "react";
 import {useHistory} from "react-router-dom";
+import "./Feeling.css";
 
 
 export default function Feeling() {
