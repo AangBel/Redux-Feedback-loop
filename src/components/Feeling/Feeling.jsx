@@ -21,7 +21,7 @@ export default function Feeling() {
     console.log("in the feels");
     const [feeling, setFeeling] = React.useState("");
 
-    const handleChange = (event) => {
+    const handleFeelingsChange = (event) => {
     const selectedValue = event.target.value;
     setFeeling(selectedValue);
     };
@@ -37,7 +37,7 @@ export default function Feeling() {
             labelId="feeling-label"
             id="feeling-select"
             value={feeling}
-            onChange={handleChange}
+            onChange={handleFeelingsChange}
             >
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={2}>2</MenuItem>
