@@ -11,16 +11,24 @@ import {
 } from "@mui/material";
 
 import { useState } from "react";
+import {useHistory} from "react-router-dom";
+
 
 export default function Supported() {
     console.log("ya feel the support?");
     const [support, setSupport] = React.useState("");
+    const history = useHistory();
 
     const handleSupportChange = (event) => {
     const selectedValue = event.target.value;
     setSupport(selectedValue);
     };
 
+    const handleSupportNext = () => {
+        console.log('selected support:', support);
+        history.push("/Comments");
+
+    }
     return (
     <>
     
@@ -43,7 +51,7 @@ export default function Supported() {
             </Select>
             <Stack spacing={2} direction="row">
             </Stack>
-            <Button variant="contained">Next</Button>
+            <Button variant="contained" onClick={handleSupportNext}>Next</Button>
         </FormControl>
         </Paper>
     </>
