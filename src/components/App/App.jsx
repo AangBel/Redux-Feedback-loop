@@ -13,12 +13,13 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      
+
       <Route path="/">
         <Header />
       </Route>
 
       <Route path="/Feeling">
+        {/* <Header /> */}
         <Feeling />
       </Route>
 
