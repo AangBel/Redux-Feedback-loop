@@ -11,15 +11,23 @@ import {
 } from "@mui/material";
 
 import { useState } from "react";
+import {useHistory} from "react-router-dom";
 
 export default function Understanding() {
     console.log("je razumijes?");
     const [understanding, setUnderstanding] = React.useState("");
+    const history = useHistory();
 
     const handleUnderstandingChange = (event) => {
     const selectedValue = event.target.value;
     setUnderstanding(selectedValue);
     };
+
+    const handleRazumijesNext = () => {
+        console.log('selected understanding:', understanding);
+        history.push("/Supported");
+
+    }
 
     return (
     <>
@@ -43,7 +51,7 @@ export default function Understanding() {
             </Select>
             <Stack spacing={2} direction="row">
             </Stack>
-            <Button variant="contained">Next</Button>
+            <Button variant="contained" onClick={handleRazumijesNext}>Next</Button>
         </FormControl>
         </Paper>
     </>

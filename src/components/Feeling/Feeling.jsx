@@ -11,10 +11,13 @@ import {
 } from "@mui/material";
 
 import { useState, useSelector } from "react";
+import {useHistory} from "react-router-dom";
+
 
 export default function Feeling() {
     console.log("in the feels");
     const [feel, setFeel] = React.useState("");
+    const history = useHistory();
 
     const handleFeelingsChange = (event) => {
     const selectedValue = event.target.value;
@@ -25,6 +28,7 @@ export default function Feeling() {
 
     const handleFeelingsNext = () => {
         console.log('selected feeling:', feel);
+        history.push("/Understanding");
         }
 
 
