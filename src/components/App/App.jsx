@@ -1,25 +1,39 @@
-import React from 'react';
-import axios from 'axios';
-import Feeling from '../Feeling/Feeling';
-import Understanding from '../Understanding/Understanding';
-import Supported from '../Supported/Supported';
-import Comments from '../Comments/Comments';
+import React from "react";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 
-import './App.css';
+import axios from "axios";
+import Feeling from "../Feeling/Feeling";
+import Understanding from "../Understanding/Understanding";
+import Supported from "../Supported/Supported";
+import Comments from "../Comments/Comments";
+import Header from "../Header/Header";
+
+import "./App.css";
 
 function App() {
-
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-        <h4>Don't forget it!</h4>
-      </header>
+    <Router>
+      
+      <Route path="/">
+        <Header />
+      </Route>
+
+      <Route path="/Feeling">
         <Feeling />
+      </Route>
+
+      <Route path="/Understanding">
         <Understanding />
+      </Route>
+
+      <Route path="/Supported">
         <Supported />
+      </Route>
+
+      <Route path="/Comments">
         <Comments />
-    </div>
+      </Route>
+    </Router>
   );
 }
 

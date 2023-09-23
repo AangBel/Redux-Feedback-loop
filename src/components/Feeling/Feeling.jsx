@@ -10,16 +10,23 @@ import {
     Paper,
 } from "@mui/material";
 
-import { useState } from "react";
+import { useState, useSelector } from "react";
 
 export default function Feeling() {
     console.log("in the feels");
-    const [feeling, setFeeling] = React.useState("");
+    const [feel, setFeel] = React.useState("");
 
     const handleFeelingsChange = (event) => {
     const selectedValue = event.target.value;
-    setFeeling(selectedValue);
+    setFeel(selectedValue);
     };
+
+    // const feelingsValue = useSelector((store)=> store.feelingsValue)
+
+    const handleFeelingsNext = () => {
+        console.log('selected feeling:', feel);
+        }
+
 
     return (
     <>
@@ -31,7 +38,7 @@ export default function Feeling() {
             <Select
             labelId="feeling-label"
             id="feeling-select"
-            value={feeling}
+            value={feel}
             onChange={handleFeelingsChange}
             >
             <MenuItem value={1}>1</MenuItem>
@@ -43,9 +50,9 @@ export default function Feeling() {
             </Select>
             <Stack spacing={2} direction="row">
             </Stack>
-            <Button variant="contained">Next</Button>
+            <Button variant="contained"  onClick={handleFeelingsNext} >Next</Button>
         </FormControl>
         </Paper>
     </>
     );
-}
+    }
