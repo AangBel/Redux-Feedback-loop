@@ -52,7 +52,13 @@ export default function Feedback() {
     <>
         <Paper
         className="supportingPaper"
-        sx={{ height: 200, width: 1300, elevation: 5 }}
+        sx={{ 
+            height: 400, 
+            width: 1300, 
+            elevation: 5,
+            display:"flex",
+            flexDirection:"column",  
+        }}
         >
         <h1>Review Your Feedback</h1>
         <p>Feelings: {feelingsValue}</p>

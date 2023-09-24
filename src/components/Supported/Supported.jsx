@@ -38,7 +38,16 @@ export default function Supported() {
     return (
     <>
     
-        <Paper className="supportingPaper" sx={{ height: 200 ,width:1300, elevation:5}}>
+        <Paper 
+        className="supportingPaper" 
+        sx={{ 
+            height: 200, 
+            width:1300, 
+            elevation:5,
+            display:"flex",
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center"}}>
         <h1>How well are you being supported?</h1>
         <FormControl sx={{ m: 1, minWidth: 160 }}>
             <InputLabel id="supporting-label">Support?</InputLabel>

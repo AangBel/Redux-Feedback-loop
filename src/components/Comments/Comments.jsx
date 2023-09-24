@@ -39,7 +39,13 @@ export default function Comments() {
     <>
       <Paper
         className="commentingPaper"
-        sx={{ height: 200, width: 1300, elevation: 5 }}
+        sx={{  height: 200, 
+            width:1300, 
+            elevation:5,
+            display:"flex",
+            flexDirection:"column",
+            alignItems:"center",
+            justifyContent:"center"}}
       >
         <h1>Any comments you want to leave?</h1>
         <FormControl sx={{ m: 1, minWidth: 160 }}>

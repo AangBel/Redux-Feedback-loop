@@ -41,7 +41,17 @@ export default function Feeling() {
     return (
     <>
     
-        <Paper className="feelingPaper" sx={{ height: 200 ,width:1300, elevation:5}}>
+        <Paper 
+        className="feelingPaper" 
+        sx={{ 
+        height: 200, 
+        width:1300, 
+        elevation:5,
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"center"
+        }}>
         <h1>How are you feeling today?</h1>
         <FormControl sx={{ m: 1, minWidth: 110 }}>
             <InputLabel id="feeling-label">Feeling?</InputLabel>
