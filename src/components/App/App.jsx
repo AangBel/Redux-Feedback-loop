@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 // import {compose} from "redux";
 
 // import axios from "axios";
@@ -15,37 +15,15 @@ import "./App.css";
 function App() {
   return (
     <Router>
-
-    <Route exact path="/">
-      <Header/>
-      <Feeling/>
-    </Route>
-
-      {/* <Route>
-        <Header />
-      </Route> */}
-
-    
-      <Route exact path="/Feeling">
-        <Feeling />
-      </Route>
-
-      <Route exact path="/Understanding">
-        <Understanding />
-      </Route>
-
-      <Route exact path="/Supported">
-        <Supported />
-      </Route>
-
-      <Route exact path="/Comments">
-        <Comments />
-      </Route>
-
-      <Route exact path="/Feedback">
-        <Feedback />
-      </Route>
-
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Feeling} />
+        <Route exact path="/Feeling" component={Feeling} />
+        <Route exact path="/Understanding" component={Understanding} />
+        <Route exact path="/Supported" component={Supported} />
+        <Route exact path="/Comments" component={Comments} />
+        <Route exact path="/Feedback" component={Feedback} />
+      </Switch>
     </Router>
   );
 }
