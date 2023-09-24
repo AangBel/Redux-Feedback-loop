@@ -9,6 +9,7 @@ import Supported from "../Supported/Supported";
 import Comments from "../Comments/Comments";
 import Header from "../Header/Header";
 import Feedback from "../Review/Review";
+import Success from "../Success/Success";
 
 import "./App.css";
 
@@ -23,6 +24,8 @@ function App() {
         <Route exact path="/Supported" component={Supported} />
         <Route exact path="/Comments" component={Comments} />
         <Route exact path="/Feedback" component={Feedback} />
+        <Route exact path="/Success" component={Success} />
+
       </Switch>
     </Router>
   );

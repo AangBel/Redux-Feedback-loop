@@ -14,6 +14,9 @@ import "./Review.css";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
+// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {useHistory} from "react-router-dom";
+
 
 export default function Feedback() {
   console.log("in the Review Feedback section!");
@@ -22,16 +25,22 @@ export default function Feedback() {
   const supportValue = useSelector((store) => store.supportValue);
   const commentValue = useSelector((store) => store.commentValue);
 
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     console.log('in the handleSubmit');
     const payload = {feeling:feelingsValue, 
-                        understanding:understandValue,
-                        support:supportValue,
-                        comments:commentValue};
-
-    axios.post('/feedback', payload)
-    .then((response) => {
-        console.log('POST',response);
+        understanding:understandValue,
+        support:supportValue,
+        comments:commentValue};
+        history.push("/Success");
+        
+        axios.post('/feedback', payload)
+        .then((response) => {
+            console.log('POST',response);
+            if (response.data.success){
+            
+            }
     })
     .catch((error)=> {
         console.log(error);
@@ -39,7 +48,7 @@ export default function Feedback() {
     })
 }
 
-  return (
+    return (
     <>
         <Paper
         className="supportingPaper"
