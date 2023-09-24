@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-// import {createStore, combineReducers, applyMiddleware} from "redux";
-// import logger from "redux-logger";
-import { Provider } from 'react';
+import ReactDOM from 'react-dom';
+import {createStore, combineReducers, applyMiddleware, compose} from "redux";
+import logger from "redux-logger";
+import { Provider } from 'react-redux';
+import {createRoot} from "react-dom/client";
 
 import './index.css';
 import App from './components/App/App';
@@ -14,18 +15,39 @@ const feelingsValue = (state = [], action) => {
     return state;
 }
 
-// const storeInstance = createStore(
-//         combineReducers({
-//             feelingsValue
-//         }),
-//         applyMiddleware(logger)
-//     )
+const understandValue = (state = [], action) => {
+    if(action.type === "ADD_UNDERSTANDING"){
+        return action.payload;
+    }
+    return state;
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const supportValue = (state = [], action) => {
+    if(action.type === "ADD_SUPPORT"){
+        return action.payload;
+    }
+    return state;
+}
+
+const composeEnhancers = 
+window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const storeInstance = createStore(
+        combineReducers({
+            feelingsValue:feelingsValue,
+            understandValue:understandValue,
+            supportValue:supportValue
+        }
+        ),
+        composeEnhancers(
+            applyMiddleware(logger))
+    );
+
+const root = createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        {/* <Provider store = {storeInstance}> */}
+        <Provider store = {storeInstance}>
         <App />
-        {/* </Provider> */}
+        </Provider>
     </React.StrictMode>
 );

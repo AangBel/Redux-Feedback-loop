@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 
 import { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+
 import {useHistory} from "react-router-dom";
 import "./Understanding.css";
 
@@ -18,6 +20,7 @@ import "./Understanding.css";
 export default function Understanding() {
     console.log("je razumijes?");
     const [understanding, setUnderstanding] = React.useState("");
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const handleUnderstandingChange = (event) => {
@@ -25,8 +28,12 @@ export default function Understanding() {
     setUnderstanding(selectedValue);
     };
 
+    const understandValue = useSelector((store)=> store.understandValue)
+    const understandAction = {type:"ADD_UNDERSTANDING", payload:understanding};
+
     const handleRazumijesNext = () => {
         console.log('selected understanding:', understanding);
+        dispatch(understandAction);
         history.push("/Supported");
 
     }

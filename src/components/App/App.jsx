@@ -1,7 +1,8 @@
 import React from "react";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
+// import {compose} from "redux";
 
-import axios from "axios";
+// import axios from "axios";
 import Feeling from "../Feeling/Feeling";
 import Understanding from "../Understanding/Understanding";
 import Supported from "../Supported/Supported";
@@ -14,24 +15,29 @@ function App() {
   return (
     <Router>
 
-      <Route path="/">
-        <Header />
-      </Route>
+    <Route exact path="/">
+      <Header/>
+      <Feeling/>
+    </Route>
 
-      <Route path="/Feeling">
-        {/* <Header /> */}
+      {/* <Route>
+        <Header />
+      </Route> */}
+
+    
+      <Route exact path="/Feeling">
         <Feeling />
       </Route>
 
-      <Route path="/Understanding">
+      <Route exact path="/Understanding">
         <Understanding />
       </Route>
 
-      <Route path="/Supported">
+      <Route exact path="/Supported">
         <Supported />
       </Route>
 
-      <Route path="/Comments">
+      <Route exact path="/Comments">
         <Comments />
       </Route>
     </Router>

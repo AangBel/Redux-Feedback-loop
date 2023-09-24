@@ -10,14 +10,17 @@ import {
     Paper,
 } from "@mui/material";
 
-import { useState, useSelector } from "react";
+import { useState } from "react";
 import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+
 import "./Feeling.css";
 
 
 export default function Feeling() {
     console.log("in the feels");
     const [feel, setFeel] = React.useState("");
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const handleFeelingsChange = (event) => {
@@ -25,10 +28,12 @@ export default function Feeling() {
     setFeel(selectedValue);
     };
 
-    // const feelingsValue = useSelector((store)=> store.feelingsValue)
+    const feelingsValue = useSelector((store)=> store.feelingsValue)
+    const feelingAction = {type: "ADD_FEELINGS", payload:feel};
 
     const handleFeelingsNext = () => {
         console.log('selected feeling:', feel);
+        dispatch(feelingAction);
         history.push("/Understanding");
         }
 

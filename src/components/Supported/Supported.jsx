@@ -12,12 +12,15 @@ import {
 
 import { useState } from "react";
 import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+
 import "./Supported.css";
 
 
 export default function Supported() {
     console.log("ya feel the support?");
     const [support, setSupport] = React.useState("");
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const handleSupportChange = (event) => {
@@ -25,8 +28,10 @@ export default function Supported() {
     setSupport(selectedValue);
     };
 
+    const supportAction = {type:"ADD_SUPPORT", payload:support};
     const handleSupportNext = () => {
         console.log('selected support:', support);
+        dispatch(supportAction);
         history.push("/Comments");
 
     }
