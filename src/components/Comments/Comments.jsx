@@ -11,12 +11,15 @@ import {
   TextField,
 } from "@mui/material";
 import {useHistory} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+
 
 import { useState } from "react";
 
 export default function Comments() {
   console.log("talking back??");
   const [comments, setComments] = React.useState("");
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleCommentChange = (event) => {
@@ -24,8 +27,11 @@ export default function Comments() {
     setComments(selectedValue);
   };
 
+  const commentAction = {type:"ADD_COMMENT", payload:comments};
+
   const handleCommentNext = () => {
     console.log('in the handle comment next');
+    dispatch(commentAction);
     history.push("/Feedback");
 }
 

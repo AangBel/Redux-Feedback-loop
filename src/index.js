@@ -29,6 +29,13 @@ const supportValue = (state = [], action) => {
     return state;
 }
 
+const commentValue = (state = [], action) => {
+    if(action.type === "ADD_COMMENT"){
+        return action.payload;
+    }
+    return state;
+}
+
 const composeEnhancers = 
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -36,7 +43,8 @@ const storeInstance = createStore(
         combineReducers({
             feelingsValue:feelingsValue,
             understandValue:understandValue,
-            supportValue:supportValue
+            supportValue:supportValue,
+            commentValue:commentValue
         }
         ),
         composeEnhancers(
