@@ -8,6 +8,7 @@ import Understanding from "../Understanding/Understanding";
 import Supported from "../Supported/Supported";
 import Comments from "../Comments/Comments";
 import Header from "../Header/Header";
+import Feedback from "../Review/Review";
 
 import "./App.css";
 
@@ -40,6 +41,11 @@ function App() {
       <Route exact path="/Comments">
         <Comments />
       </Route>
+
+      <Route exact path="/Feedback">
+        <Feedback />
+      </Route>
+
     </Router>
   );
 }

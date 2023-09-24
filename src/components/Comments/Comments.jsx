@@ -10,17 +10,24 @@ import {
   Paper,
   TextField,
 } from "@mui/material";
+import {useHistory} from "react-router-dom";
 
 import { useState } from "react";
 
 export default function Comments() {
   console.log("talking back??");
   const [comments, setComments] = React.useState("");
+  const history = useHistory();
 
   const handleCommentChange = (event) => {
     const selectedValue = event.target.value;
     setComments(selectedValue);
   };
+
+  const handleCommentNext = () => {
+    console.log('in the handle comment next');
+    history.push("/Feedback");
+}
 
   return (
     <>
@@ -37,7 +44,7 @@ export default function Comments() {
             onChange={handleCommentChange}
           />
 
-          <Button variant="contained">Next</Button>
+          <Button variant="contained" onClick={handleCommentNext}>Next</Button>
         </FormControl>
       </Paper>
     </>
