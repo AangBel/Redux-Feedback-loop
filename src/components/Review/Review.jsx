@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 
 import "./Review.css";
+import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,6 +21,23 @@ export default function Feedback() {
   const understandValue = useSelector((store) => store.understandValue);
   const supportValue = useSelector((store) => store.supportValue);
   const commentValue = useSelector((store) => store.commentValue);
+
+  const handleSubmit = (event) => {
+    console.log('in the handleSubmit');
+    const payload = {feeling:feelingsValue, 
+                        understanding:understandValue,
+                        support:supportValue,
+                        comments:commentValue};
+
+    axios.post('/feedback', payload)
+    .then((response) => {
+        console.log('POST',response);
+    })
+    .catch((error)=> {
+        console.log(error);
+        alert('error with axios post under handle submit');
+    })
+}
 
   return (
     <>
@@ -33,7 +51,7 @@ export default function Feedback() {
         <p>Supported: {supportValue}</p>
         <p>Comments: {commentValue}</p>
 
-        <Button variant="contained">SUBMIT</Button>
+        <Button variant="contained" onClick={handleSubmit}>SUBMIT</Button>
         </Paper>
     </>
     );
